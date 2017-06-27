@@ -2,8 +2,7 @@
 if [ ! -z $1 ] 
 then
 
-	code=`cat $1`
-	python -c "import eval; eval.run_block('$code')"
+	python -c "import run; run.run_block('$1')"
 
 else
 	python3 -c 'import eval; eval.repl()'

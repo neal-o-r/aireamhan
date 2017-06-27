@@ -103,12 +103,6 @@ def repl(prompt='Áireamhán > '):
 		if status == 0:
 			break
 
-def run_block(block):
-	print(block)
-	block = block.split(';')
-	for line in block:
-		run(line)
-
 def run(code):
 	if code == 'dún':
 		print('Slán')
