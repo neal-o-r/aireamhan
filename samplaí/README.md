@@ -8,7 +8,7 @@ The language supports ```int```, ```float```, ```str``` and Boolean types, where
 |-------------------------------|-----------------------------------|
 | níl, agus, <, >, =, <=, >=    | not, and, other logical operators |
 | frmh(int/float)               | complex sqrt                      |
-| dearbhluach(int, float)       | abs                               |
+| dearbhluach(int/float)       | abs                               |
 | uas(liosta)                   | max                               |
 | íos(liosta)                   | min                               |
 | cothrom_le?(x, x)             | equal to                          |
