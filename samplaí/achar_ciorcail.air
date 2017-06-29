@@ -1,0 +1,4 @@
+(tosaigh
+(sainigh achar-ciorcail (lambda (r) (* pi (* r r))))
+(scríobh (achar-ciorcail 3))
+)

@@ -1,0 +1,9 @@
+(tosaigh
+(sainigh fib 
+(lambda (n) (má (< n 2) 1 
+(+ (fib (- n 1)) 
+(fib (- n 2))))))
+)
+
+(lódáil "ó_go.air")
+(scríobh (mapáil fib (ó_go 0 20)))

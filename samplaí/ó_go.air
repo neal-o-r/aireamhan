@@ -1,0 +1,4 @@
+(sainigh ó_go 
+(lambda (a b) 
+(má (= a b) (athfhriotail ()) 
+(cons a (ó_go (+ a 1) b)))))
