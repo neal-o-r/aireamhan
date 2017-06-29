@@ -99,10 +99,10 @@ def read(inport):
     return eof_object if token1 is eof_object else read_ahead(token1)
 
 def atom(token):
-    'Numbers become numbers; #t and #f are booleans; "..." string; otherwise Symbol.'
+    'Numbers become numbers; #t and #n are booleans; "..." string; otherwise Symbol.'
     if token == '#t': 
         return True
-    elif token == '#f': 
+    elif token == '#n': 
         return False
     elif token[0] == '"': 
         return str(token[1:-1])
@@ -122,7 +122,7 @@ def to_string(x):
     if x is True: 
         return "#t"
     elif x is False: 
-        return "#f"
+        return "#n"
     elif isa(x, Symbol): 
          return x
     elif isa(x, str): 
@@ -198,15 +198,15 @@ def add_globals(self):
      '>':op.gt, '<':op.lt, '>=':op.ge, '<=':op.le, '=':op.eq, 'mod':op.mod, 
      'frmh':cmath.sqrt, 'dearbhluach':abs, 'uas':max, 'íos':min,
      'cothrom_le?':op.eq, 'ionann?':op.is_, 'fad':len, 'cons':cons,
-     'ceann':lambda x:x[0], 'tonn':lambda x:x[1:], 'iarcheangail':op.add,  
+     'ceann':lambda x:x[0], 'tóin':lambda x:x[1:], 'iarcheangail':op.add,  
      'liosta':lambda *x:list(x), 'liosta?': lambda x:isa(x,list),
      'folamh?':lambda x: x == [], 'siombail?':lambda x: isa(x, Symbol),
-     'boolean?':lambda x: isa(x, bool),
+     'boole?':lambda x: isa(x, bool),
      'cuir_le':lambda proc,l: proc(*l), 'mapáil':lambda p, x: list(map(p, x)), 
      'lódáil':lambda fn: load(fn), 'léigh':lambda f: f.read(),
      'oscail_comhad_ionchuir':open,'dún_comhad_ionchuir':lambda p: p.file.close(), 
      'oscail_comhad_aschur':lambda f:open(f,'w'), 'dún_comhad_aschur':lambda p: p.close(),
-     'eof?':lambda x:x is eof_object,
+     'dac?':lambda x:x is eof_object,
      'scríobh':lambda x,port=sys.stdout:port.write(to_string(x) + '\n')})
     return self
 
