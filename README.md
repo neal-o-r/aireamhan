@@ -1,4 +1,3 @@
-# Áireamhán
 
 <p align="center">
   <img src="aireamhan.png">

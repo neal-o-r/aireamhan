@@ -4,6 +4,9 @@
 import re, sys 
 from io import StringIO
 
+class Fadhb(Exception):
+    pass
+
 
 isa = isinstance
 
@@ -84,13 +87,13 @@ def read(inport):
                     L.append(read_ahead(token))
         
         elif ')' == token: 
-            raise SyntaxError(' ) gan súil leis')
+            raise Fadhb(' ) gan súil leis')
         
         elif token in quotes: 
             return [quotes[token], read(inport)]
         
         elif token is eof_object: 
-            raise SyntaxError('EOF gan súil leis')
+            raise Fadhb('EOF gan súil leis')
         
         else: 
             return atom(token)
@@ -100,9 +103,9 @@ def read(inport):
 
 def atom(token):
     'Numbers become numbers; #t and #n are booleans; "..." string; otherwise Symbol.'
-    if token == '#t': 
+    if token == '#tá': 
         return True
-    elif token == '#n': 
+    elif token == '#níl': 
         return False
     elif token[0] == '"': 
         return str(token[1:-1])
@@ -120,9 +123,9 @@ def atom(token):
 def to_string(x):
     "reverse the atomisation"
     if x is True: 
-        return "#t"
+        return "#tá"
     elif x is False: 
-        return "#n"
+        return "#níl"
     elif isa(x, Symbol): 
          return x
     elif isa(x, str): 
@@ -158,7 +161,7 @@ def repl(prompt='áireamhán > ', inport=InPort(sys.stdin), out=sys.stdout):
 
             if val is not None and out: 
                 print(to_string(val))
-        except Exception as e:
+        except Fadhb as e:
             print('{0}: {1}'.format(type(e).__name__, e))
 
 
@@ -172,7 +175,7 @@ class Env(dict):
 
         else: 
             if len(args) != len(parms):
-                raise TypeError('ag súil le {0}, fuair {1}, '.format(to_string(parms), to_string(args)))
+                raise Fadhb('ag súil le {0}, fuair {1}, '.format(to_string(parms), to_string(args)))
 
             self.update(zip(parms,args))
 
@@ -181,7 +184,7 @@ class Env(dict):
         if var in self:
             return self
         elif self.outer is None: 
-            raise LookupError(var)
+            raise Fadhb("Earráid Cuardach: {}".format(var))
         else: 
             return self.outer.find(var)
 
@@ -301,7 +304,7 @@ def expand(x, toplevel=False):
 def require(x, predicate, msg="fad mícheart"):
     "Signal a syntax error if predicate is false."
     if not predicate: 
-        raise SyntaxError(to_string(x)+': '+msg)
+        raise Fadhb(to_string(x)+': '+msg)
 
 
 if __name__ == '__main__':
