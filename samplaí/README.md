@@ -2,7 +2,7 @@
 
 This directory contains some basic examples of how to write procedures using Áireamhán. These examples can be run from the REPL or run directly by reading in the files. To open the REPL run ```./áireamán.sh``` and call the files with ```(lódáil "path/filename")```. To run the file directly use ```./áireamhán.sh path/filename```.
 
-The language supports ```int```, ```float```, ```str``` and Boolean types, where the Bools are defined as ```#tá``` and ```#níl```. Like Lisp it is fully parenthesised and uses Reverse Polish (postfix) Notation. Like Lisp it also makes use of conses, and uses recursion and maps rather than loops. Below are the operators and procedures implemented.
+The language supports ```int```, ```float```, ```str``` and Boolean types, where the Bools are defined as ```#tá``` and ```#níl```. Like Lisp it is fully parenthesised and uses Reverse Polish (postfix) Notation. Like Lisp it also makes use of conses (which are implemented as Python lists), and uses recursion and maps rather than loops. Below are the operators and procedures implemented.
 
 | Operator                           | Definition                      |
 |-------------------------------|-----------------------------------|
