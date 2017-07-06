@@ -4,7 +4,7 @@ This directory contains some installation instructions and basic examples of how
 
 # Installation
 
-The language can be installed from PyPI, ```pip3 install aireamhan```. Once installed you can run the REPL or run procedures directly from files.
+The language can be installed from PyPI, ```pip install aireamhan```. Once installed you can run the REPL or run procedures directly from files.
 
 ```
 $ áireamhán [path/to/procedure.air]
