@@ -32,7 +32,7 @@ class Procedure(object):
         self.parms, self.exp, self.env = parms, exp, env
     
     def __call__(self, *args): 
-        return eval(self.exp, Env(self.parms, args, self.env))
+        return evaluate(self.exp, Env(self.parms, args, self.env))
 
 
 def parse(inport):
@@ -139,12 +139,12 @@ def to_string(x):
 
 
 def load(filename):
-    "Eval every expression from a file."
+    "evaluate every expression from a file."
     repl(None, InPort(open(filename)), None)
 
 
 def repl(prompt='áireamhán > ', inport=InPort(sys.stdin), out=sys.stdout):
-    "A prompt-read-eval-print loop."
+    "A prompt-read-evaluate-print loop."
 
     if prompt != None: sys.stderr.write("\nFáilte\n" + 5*'-' + '\n')
 
@@ -157,7 +157,7 @@ def repl(prompt='áireamhán > ', inport=InPort(sys.stdin), out=sys.stdout):
                 print('-'*5 + '\nSlán\n')
                 return
 
-            val = eval(x)
+            val = evaluate(x)
 
             if val is not None and out: 
                 print(to_string(val))
@@ -216,8 +216,8 @@ def add_globals(self):
 global_env = add_globals(Env())
 
 
-def eval(x, env=global_env):
-    "Evaluate an expression in an environment."
+def evaluate(x, env=global_env):
+    "evaluateuate an expression in an environment."
     while True:
         if isa(x, Symbol):       # variable reference
             return env.find(x)[x]
@@ -231,16 +231,16 @@ def eval(x, env=global_env):
 
         elif x[0] is _if:        # (if test conseq alt)
             (_, test, conseq, alt) = x
-            x = (conseq if eval(test, env) else alt)
+            x = (conseq if evaluate(test, env) else alt)
 
         elif x[0] is _set:       # (set! var exp)
             (_, var, exp) = x
-            env.find(var)[var] = eval(exp, env)
+            env.find(var)[var] = evaluate(exp, env)
             return None
 
         elif x[0] is _define:    # (define var exp)
             (_, var, exp) = x
-            env[var] = eval(exp, env)
+            env[var] = evaluate(exp, env)
             return None
 
         elif x[0] is _lambda:    # (lambda (var*) exp)
@@ -249,11 +249,11 @@ def eval(x, env=global_env):
 
         elif x[0] is _begin:     # (begin exp+)
             for exp in x[1:-1]:
-                eval(exp, env)
+                evaluate(exp, env)
             x = x[-1]
 
         else:                    # (proc exp*)
-            exps = [eval(exp, env) for exp in x]
+            exps = [evaluate(exp, env) for exp in x]
             proc = exps.pop(0)
 
             if isa(proc, Procedure):
