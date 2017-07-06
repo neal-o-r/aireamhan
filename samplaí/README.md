@@ -1,6 +1,6 @@
 # Samplaí
 
-This directory contains some basic examples of how to write procedures using Áireamhán. These examples can be run from the REPL or run directly by reading in the files.
+This directory contains some installation instructions and basic examples of how to write procedures using Áireamhán.
 
 # Installation
 
