@@ -12,7 +12,7 @@ $ áireamhán [path/to/procedure.air]
 
 # Features
 
-The language supports ```int```, ```float```, ```complex```, ```str``` and Boolean types, where the Bools are defined as ```#tá``` and ```#níl```. Like Lisp it is fully parenthesised and uses Reverse Polish (postfix) Notation. Like Lisp it also makes use of conses (which are implemented as Python lists), and uses recursion and maps rather than loops. Below are the operators and procedures implemented.
+The language supports ```int```, ```float```, ```complex```, ```str``` and Boolean types, where the Bools are defined as ```#tá``` and ```#níl```. Like Lisp it is fully parenthesised and uses Polish (prefix) Notation. Like Lisp it also makes use of conses (which are implemented as Python lists), and uses recursion and maps rather than loops. Below are the operators and procedures implemented.
 
 | Operator                           | Definition                      |
 |-------------------------------|-----------------------------------|
