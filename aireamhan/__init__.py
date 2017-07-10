@@ -129,7 +129,7 @@ def to_string(x):
     elif isa(x, Symbol): 
          return x
     elif isa(x, str): 
-        return '"{0}"'.format(str(x).replace('"',r'\"'))
+        return '{0}'.format(str(x).replace('"',r'\"'))
     elif isa(x, list): 
         return '('+' '.join(map(to_string, x))+')'
     elif isa(x, complex): 
@@ -204,7 +204,7 @@ def add_globals(self):
      'ceann':lambda x:x[0], 'tóin':lambda x:x[1:], 'iarcheangail':op.add,  
      'liosta':lambda *x:list(x), 'liosta?': lambda x:isa(x,list),
      'folamh?':lambda x: x == [], 'siombail?':lambda x: isa(x, Symbol),
-     'boole?':lambda x: isa(x, bool),
+     'boole?':lambda x: isa(x, bool), 'scag':lambda f, x: list(filter(f, x)),
      'cuir_le':lambda proc,l: proc(*l), 'mapáil':lambda p, x: list(map(p, x)), 
      'lódáil':lambda fn: load(fn), 'léigh':lambda f: f.read(),
      'oscail_comhad_ionchuir':open,'dún_comhad_ionchuir':lambda p: p.file.close(), 

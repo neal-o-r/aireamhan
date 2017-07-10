@@ -12,7 +12,7 @@ $ áireamhán [path/to/procedure.air]
 
 # Features
 
-The language supports ```int```, ```float```, ```complex```, ```str``` and Boolean types, where the Bools are defined as ```#tá``` and ```#níl```. Like Lisp it is fully parenthesised and uses Polish (prefix) Notation. Like Lisp it also makes use of conses (which are implemented as Python lists), and uses recursion and maps rather than loops. Below are the operators and procedures implemented.
+The language supports ```int```, ```float```, ```complex```, ```str``` and Boolean types, where the Booles are defined as ```#tá``` and ```#níl```. Like Lisp it is fully parenthesised and uses Polish (prefix) Notation. Like Lisp it also makes use of conses (which are implemented as Python lists), and uses recursion and maps rather than loops. Below are the operators and procedures implemented.
 
 | Operator                           | Definition                      |
 |-------------------------------|-----------------------------------|
@@ -32,6 +32,7 @@ The language supports ```int```, ```float```, ```complex```, ```str``` and Boole
 | boole?(x)                     | is Boolean                        |
 | cuir_le(f, x*)                | apply function f to args          |
 | mapáil(f, liosta/cons)        | map function onto iterable        |
+| scag(f, liosta/cons)          | filter iterable by Boolean f      |
 | lódáil(fname)                 | load and execute file             |
 | léigh(fname)                  | read file contents                |
 | oscail_comhad_ionchuir(fname) | open file in read mode            |
