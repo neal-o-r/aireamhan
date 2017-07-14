@@ -1,0 +1,6 @@
+(sainigh nó (lambda (x y)
+(má (= x #tá) #tá
+(má (= y #tá) #tá
+#níl)))
+)
+

@@ -1,0 +1,6 @@
+(sainigh go
+(lambda (b l)
+(má (= b 0) l
+    (go (- b 1) (cons b l))))
+)
+

@@ -1,0 +1,22 @@
+;Réiteach ar céad ceist Project Euler
+(lódáil "go.air")
+(lódáil "nó.air")
+(lódáil "suim_liosta.air")
+
+(tosaigh
+(sainigh mod_5 (lambda (x)
+(cothrom_le? 0 (mod x 5))))
+)
+
+(tosaigh
+(sainigh mod_3 (lambda (x)
+(cothrom_le? 0 (mod x 3))))
+)
+
+(tosaigh
+(sainigh mod_3_5 (lambda (x)
+(nó (mod_3 x) (mod_5 x)))))
+
+(scríobh (suim_liosta (scag mod_3_5 (go 1000 (liosta ))) 0))
+
+

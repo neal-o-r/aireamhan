@@ -1,0 +1,5 @@
+(sainigh suim_liosta (lambda (x a)
+(má (= 1 (fad x)) (+ a (ceann x))
+    (suim_liosta (tóin x) (+ a (ceann x))))
+))
+
