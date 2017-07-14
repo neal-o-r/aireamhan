@@ -5,5 +5,5 @@
 (fib (- n 2))))))
 )
 
-(lódáil "ó_go.air")
-(scríobh (mapáil fib (ó_go 0 20)))
+(lódáil "go.air")
+(scríobh (mapáil fib (go 20 (liosta ))))

@@ -1,4 +1,4 @@
-(lódáil "ó_go.air")
+(lódáil "go.air")
 
 (tosaigh
 (sainigh mod_5 (lambda (x)
@@ -12,14 +12,14 @@
 
 (tosaigh
 (sainigh mod_3_5 (lambda (x)
-(cothrom_le? #t (agus (mod_5 x)  (mod_3 x)))))
+(cothrom_le? #tá (agus (mod_5 x)  (mod_3 x)))))
 ) 
 
 (tosaigh 
 (sainigh fizz_buzz (lambda (x)
-(má (= #t (mod_3_5 x)) "Fizz Buzz" 
-    (má (= #t (mod_5 x)) "Fizz" 
-    (má (= #t (mod_3 x)) "Buzz" x)))))
+(má (= #tá (mod_3_5 x)) "Fizz Buzz" 
+    (má (= #tá (mod_5 x)) "Fizz" 
+    (má (= #tá (mod_3 x)) "Buzz" x)))))
 )
 
-(scríobh (mapáil fizz_buzz (ó_go 1 21)))
+(scríobh (mapáil fizz_buzz (go 21 (liosta ))))
