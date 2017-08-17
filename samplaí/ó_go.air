@@ -1,0 +1,20 @@
+(sainigh ó_go (lambda (in)
+
+(má (= 3 (fad in))
+
+    (tosaigh
+    (sainigh f (ceann in))
+    (sainigh n (ceann (tóin in)))
+    (sainigh l (ceann (tóin (tóin in))))
+    )
+
+    (tosaigh
+    (sainigh f (ceann in))
+    (sainigh n (ceann (tóin in)))
+    (sainigh l (liosta ))
+    ))
+    
+    (má (= n f) (cons n l)
+        (ó_go (liosta f (- n 1) (cons n l)))))
+)
+

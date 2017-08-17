@@ -1,0 +1,24 @@
+(sainigh iolrán (lambda (n)
+    (má (= n 1) n
+    (* n (iolrán (- n 1))))
+))
+
+
+(sainigh iolrán_athchúrsáil_eirre (lambda (in)
+
+(má (liosta? in)
+
+    (tosaigh
+    (sainigh n (ceann in))
+    (sainigh acc (ceann (tóin in)))
+    )
+
+    (tosaigh
+    (sainigh n in)
+    (sainigh acc 1)
+    ))
+
+    (má (= n 1) 
+        acc
+        (iolrán_athchúrsáil_eirre (liosta (- n 1) (* n acc)))
+)))
