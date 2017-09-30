@@ -1,0 +1,18 @@
+(sainigh péire
+    (lambda (x y) (cons x (liosta y))))
+
+(sainigh foclóir 
+    (lambda (x y)
+	(má (= 0 (fad x))
+	(athfhriotal ())
+	(cons (péire (ceann x) (ceann y)) (foclóir (tóin x) (tóin y))))))
+
+(sainigh eochair
+	(lambda (x y)
+	(sainigh test (lambda (a) (= (ceann a) y))) 
+	(ceann (tóin (ceann (scag test x))))))
+
+
+(sainigh x (foclóir (liosta "a" "b") (liosta 1 2)))
+(sainigh a (eochair x "a"))
+
