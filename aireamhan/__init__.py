@@ -21,8 +21,7 @@ def Sym(s, symbol_table={}):
     return symbol_table[s]
 
 _quote, _if, _define, _lambda, _begin, _set, = map(Sym, 
-"athfhriotail   má   sainigh   lambda   tosaigh  cuir!".split())
-quotes = {"'":_quote}
+"athfhriotal   má   sainigh   lambda   tosaigh  cuir!".split())
 eof_object = Symbol('#<eof-object>')
 
 
@@ -88,9 +87,6 @@ def read(inport):
         
         elif ')' == token: 
             raise Fadhb(' ) gan súil leis')
-        
-        elif token in quotes: 
-            return [quotes[token], read(inport)]
         
         elif token is eof_object: 
             raise Fadhb('EOF gan súil leis')
@@ -194,6 +190,7 @@ def cons(x, y): return [x]+y
 def add_globals(self):
     "Add some Scheme standard procedures."
     import math, cmath, operator as op
+    from functools import reduce
     self.update(vars(math))
     self.update(vars(cmath))
     self.update({
@@ -203,13 +200,13 @@ def add_globals(self):
      'cothrom_le?':op.eq, 'ionann?':op.is_, 'fad':len, 'cons':cons,
      'ceann':lambda x:x[0], 'tóin':lambda x:x[1:], 'iarcheangail':op.add,  
      'liosta':lambda *x:list(x), 'liosta?': lambda x:isa(x,list),
-     'folamh?':lambda x: x == [], 'siombail?':lambda x: isa(x, Symbol),
+     'folamh?':lambda x: x == [], 'adamh?':lambda x: not((isa(x, list)) or (x == None)),
      'boole?':lambda x: isa(x, bool), 'scag':lambda f, x: list(filter(f, x)),
      'cuir_le':lambda proc,l: proc(*l), 'mapáil':lambda p, x: list(map(p, x)), 
      'lódáil':lambda fn: load(fn), 'léigh':lambda f: f.read(),
      'oscail_comhad_ionchuir':open,'dún_comhad_ionchuir':lambda p: p.file.close(), 
      'oscail_comhad_aschur':lambda f:open(f,'w'), 'dún_comhad_aschur':lambda p: p.close(),
-     'dac?':lambda x:x is eof_object,
+     'dac?':lambda x:x is eof_object, 'luacháil':lambda x: evaluate(x),
      'scríobh':lambda x,port=sys.stdout:port.write(to_string(x) + '\n')})
     return self
 
