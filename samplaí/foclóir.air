@@ -8,11 +8,11 @@
 	(cons (péire (ceann x) (ceann y)) (foclóir (tóin x) (tóin y))))))
 
 (sainigh eochair
-	(lambda (x y)
-	(sainigh test (lambda (a) (= (ceann a) y))) 
-	(ceann (tóin (ceann (scag test x))))))
+	(lambda (y x)
+	(sainigh ceart (lambda (a) (= (ceann a) y))) 
+	(ceann (tóin (ceann (scag ceart x))))))
 
 
 (sainigh x (foclóir (liosta "a" "b") (liosta 1 2)))
-(sainigh a (eochair x "a"))
+(sainigh a (eochair "a" x))
 
