@@ -1,18 +1,17 @@
 (sainigh péire
     (lambda (x y) (cons x (liosta y))))
 
-(sainigh foclóir 
+(sainigh foclóir
     (lambda (x y)
-	(má (= 0 (fad x))
-	(athfhriotal ())
-	(cons (péire (ceann x) (ceann y)) (foclóir (tóin x) (tóin y))))))
+        (má (folamh? x)
+        (athfhriotal ())
+        (cons (péire (ceann x) (ceann y)) (foclóir (tóin x) (tóin y))))))
 
 (sainigh eochair
-	(lambda (y x)
-	(sainigh ceart (lambda (a) (= (ceann a) y))) 
-	(ceann (tóin (ceann (scag ceart x))))))
+        (lambda (y x)
+        (sainigh ceart (lambda (a) (= (ceann a) y)))
+        (ceann (tóin (ceann (scag ceart x))))))
 
 
 (sainigh x (foclóir (liosta "a" "b") (liosta 1 2)))
 (sainigh a (eochair "a" x))
-
