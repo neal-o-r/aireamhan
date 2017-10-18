@@ -207,7 +207,8 @@ def add_globals(self):
      'oscail_comhad_ionchuir':open,'dún_comhad_ionchuir':lambda p: p.file.close(), 
      'oscail_comhad_aschur':lambda f:open(f,'w'), 'dún_comhad_aschur':lambda p: p.close(),
      'dac?':lambda x:x is eof_object, 'luacháil':lambda x: evaluate(x),
-     'scríobh':lambda x,port=sys.stdout:port.write(to_string(x) + '\n')})
+     'scríobh':lambda x,port=sys.stdout:port.write(to_string(x) + '\n'),
+     'éirigh_as':exit})
     return self
 
 global_env = add_globals(Env())
