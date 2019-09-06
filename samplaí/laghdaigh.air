@@ -1,0 +1,7 @@
+(sainigh laghdaigh (lambda (f lst x)
+        (má (= 1 (fad lst)) (f (ceann lst) x)
+        (laghdaigh f (tóin lst) (f (ceann lst) x)
+))))
+
+
+(laghdaigh + (liosta 1 2 3) 0)

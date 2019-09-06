@@ -1,7 +1,0 @@
-(sainigh laghdú (lambda (f lst x)
-        (má (= 1 (fad lst)) (f (ceann lst) x)
-        (laghdú f (tóin lst) (f (ceann lst) x)
-))))
-
-
-(laghdú + (liosta 1 2 3) 0)
